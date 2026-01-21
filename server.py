@@ -179,6 +179,9 @@ def stripe_webhook():
         if subscription_id:
             set_license_status_by_subscription(subscription_id, "canceled")
 
+    # ⭐ NEW: Print license file contents to Render logs
+    print("LICENSE FILE CONTENTS:", load_licenses())
+
     return jsonify({"received": True})
 
 
